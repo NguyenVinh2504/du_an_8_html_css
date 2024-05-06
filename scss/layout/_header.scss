@@ -1,0 +1,129 @@
+@use "../abstracts";
+
+%flexItemsCenter {
+  display: flex;
+  align-items: center;
+}
+.header {
+  background: var(--header-bg-color);
+}
+.top-bar {
+  position: relative;
+
+  @extend %flexItemsCenter;
+  padding: 20px 0;
+
+  &__more {
+    display: none;
+    margin-right: 40px;
+    @extend %flexItemsCenter;
+    @include abstracts.breakpoint("lg") {
+      display: flex;
+    }
+    @include abstracts.breakpoint("sm") {
+      margin-right: 0;
+    }
+  }
+  @include abstracts.breakpoint("lg") {
+    padding: 20px 0;
+  }
+
+  @include abstracts.breakpoint("sm") {
+    padding: 16px 0;
+    justify-content: space-between;
+  }
+}
+
+.navbar {
+  margin-left: 144px;
+
+  @include abstracts.breakpoint("lg") {
+    display: none;
+  }
+  @include abstracts.breakpoint("xl") {
+    margin-left: 50px;
+  }
+  &__list {
+    @extend %flexItemsCenter;
+  }
+
+  &__item {
+    &:first-child a {
+      padding-left: 0;
+    }
+    &:last-child a {
+      padding-right: 0;
+    }
+    &:hover .dropdown {
+      display: block;
+    }
+  }
+
+  &__link {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 146.667%; /* 146.667% */
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+}
+
+.top-act {
+  @extend %flexItemsCenter;
+
+  margin-left: auto;
+  gap: 20px;
+  @include abstracts.breakpoint("sm") {
+    margin-left: 0;
+  }
+  &__group {
+    @extend %flexItemsCenter;
+
+    min-width: 50px;
+    height: 50px;
+
+    border-radius: 8px;
+    background: var(--top-act-group-bg-color);
+    box-shadow: 0px 20px 60px 10px var(--top-act-group-shadow);
+
+    @include abstracts.breakpoint("md") {
+      display: none;
+    }
+  }
+  &__group--single {
+    @include abstracts.breakpoint("lg") {
+      display: none;
+    }
+  }
+  &__group--single &__btn {
+    padding: 13px;
+  }
+
+  &__separate {
+    height: 30px;
+    width: 1px;
+    background: var(--top-act-group-separate);
+  }
+
+  &__btn {
+    padding: 13px 20px;
+    gap: 10px;
+    @extend %flexItemsCenter;
+    cursor: pointer;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 146.667%;
+  }
+
+  &__avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    display: block;
+  }
+}
