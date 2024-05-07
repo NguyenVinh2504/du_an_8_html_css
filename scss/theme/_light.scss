@@ -11,9 +11,11 @@ html {
   --body-bg: var(--background-2);
   @include abstracts.breakpoint(lg) {
     --header-bg-color: var(--secondary-color-background);
+    --header-shadow-color: rgba(237, 237, 246, 0.2);
   }
 
   //Dropdown
   --dropdown-bg-color: var(--secondary-color-background);
   --dropdown-shadow-color: rgba(200, 200, 200, 0.4);
+  --top-menu-border-color: var(--secondary-color-secondary-3);
 }
