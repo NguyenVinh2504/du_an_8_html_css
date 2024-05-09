@@ -9,7 +9,7 @@ html {
   --top-act-group-shadow: rgba(237, 237, 246, 0.2);
   --top-act-group-separate: var(--secondary-color-secondary-4);
   --body-bg: var(--background-2);
-  @include abstracts.breakpoint(lg) {
+  @include abstracts.screen(lg) {
     --header-bg-color: var(--secondary-color-background);
     --header-shadow-color: rgba(237, 237, 246, 0.2);
   }
@@ -18,4 +18,8 @@ html {
   --dropdown-bg-color: var(--secondary-color-background);
   --dropdown-shadow-color: rgba(200, 200, 200, 0.4);
   --top-menu-border-color: var(--secondary-color-secondary-3);
+
+  // Side bar
+  --sidebar-bg: var(--secondary-color-background);
+  --sidebar-shadow: rgba(200, 200, 200, 0.4);
 }

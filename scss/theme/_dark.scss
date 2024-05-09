@@ -10,7 +10,7 @@ html.dark {
   --top-act-group-separate: var(--secondary-color-secondary-4);
   --body-bg: var(--dark-2);
 
-  @include abstracts.breakpoint(lg) {
+  @include abstracts.screen(lg) {
     --header-shadow-color: rgba(0, 0, 0, 0.2);
   }
 
@@ -22,4 +22,8 @@ html.dark {
   --top-menu-border-color: var(--dark-1);
   --menu-heading-icon-color: brightness(0) saturate(100%) invert(98%) sepia(3%)
     saturate(120%) hue-rotate(201deg) brightness(99%) contrast(98%);
+
+  // Side bar
+  --sidebar-bg: var(--dark-2);
+  --sidebar-shadow: rgba(23, 28, 40, 0.4);
 }

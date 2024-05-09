@@ -1,7 +1,7 @@
 <div class="container">
     <div class="top-bar">
         <!-- More  -->
-        <button class="top-bar__more">
+        <button class="top-bar__more js-toggle d-none d-lg-flex" toggle-target="#navbar">
             <img src="./assets/icons/more.svg" alt="" class="icon top-bar__more-icon">
         </button>
 
@@ -12,7 +12,21 @@
         </a>
 
         <!-- Navbar  -->
-        <nav class="navbar">
+        <nav class="navbar hide" id="navbar">
+            <button class="navbar__close-btn js-toggle d-none d-lg-block" toggle-target="#navbar">
+                <img src="./assets/icons/arrow-left.svg" alt="" class="icon">
+            </button>
+            <a href="#!" class="nav-btn d-none d-md-flex">
+                <img src="./assets/icons/buy.svg" alt="" class="icon nav-btn__icon">
+                <span class="nav-btn__title">Card</span>
+                <span class="nav-btn__qnt">3</span>
+            </a>
+            <a href="#!" class="nav-btn d-none d-md-flex">
+                <img src="./assets/icons/heart.svg" alt="" class="icon nav-btn__icon">
+                <span class="nav-btn__title">Favorite</span>
+                <span class="nav-btn__qnt">3</span>
+            </a>
+
             <ul class="navbar__list js-dropdown-list">
                 <li class="navbar__item">
                     <a class="navbar__link" href="#!">
@@ -25,8 +39,8 @@
                             <div class="top-menu">
                                 <div class="top-menu__main">
                                     <div class="menu-column">
-                                        <div class="menu-column__header">
-                                            <div class="menu-column__icon">
+                                        <div class="menu-column__header d-lg-none">
+                                            <div class="menu-column__icon d-xl-none d-lg-block">
                                                 <img src="./assets/img/category/cate-1.1.svg" alt=""
                                                     class="menu-column__icon-1">
                                                 <img src="./assets/img/category/cate-1.2.svg" alt=""
@@ -45,10 +59,53 @@
                                                     <div class="sub-menu">
                                                         <!-- Sub Menu Column 1 -->
                                                         <div class="sub-menu__column">
+                                                            <!-- Menu Column 1.2 -->
+                                                            <div class="menu-column">
+                                                                <div class="menu-column__header">
+                                                                    <div class="menu-column__icon d-xl-none d-lg-block">
+                                                                        <img src="./assets/img/category/cate-3.1.svg"
+                                                                            alt="" class="menu-column__icon-1">
+                                                                        <img src="./assets/img/category/cate-3.2.svg"
+                                                                            alt="" class="menu-column__icon-2">
+                                                                    </div>
+                                                                    <h2 class="menu-column__heading">
+                                                                        Wearable Technology
+                                                                    </h2>
+                                                                </div>
+                                                                <div class="menu-column__content">
+                                                                    <ul class="menu-column__list">
+                                                                        <li class="menu-column__item">
+                                                                            <a href="#!" class="menu-column__link">
+                                                                                Galaxy Watch
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="menu-column__item">
+                                                                            <a href="#!" class="menu-column__link">
+                                                                                Apple Watch
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="menu-column__item">
+                                                                            <a href="#!" class="menu-column__link">
+                                                                                Fitness Trackers
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="menu-column__item">
+                                                                            <a href="#!" class="menu-column__link">
+                                                                                Virtual Reality
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="menu-column__item">
+                                                                            <a href="#!" class="menu-column__link">
+                                                                                Headphones
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
                                                             <!-- Menu Column 1.1 -->
                                                             <div class="menu-column">
                                                                 <div class="menu-column__header">
-                                                                    <div class="menu-column__icon">
+                                                                    <div class="menu-column__icon d-xl-none d-lg-block">
                                                                         <img src="./assets/img/category/cate-2.1.svg"
                                                                             alt="" class="menu-column__icon-1">
                                                                         <img src="./assets/img/category/cate-2.2.svg"
@@ -98,140 +155,14 @@
                                                                     </ul>
                                                                 </div>
                                                             </div>
-
-                                                            <!-- Menu Column 1.2 -->
-                                                            <div class="menu-column">
-                                                                <div class="menu-column__header">
-                                                                    <div class="menu-column__icon">
-                                                                        <img src="./assets/img/category/cate-3.1.svg"
-                                                                            alt="" class="menu-column__icon-1">
-                                                                        <img src="./assets/img/category/cate-3.2.svg"
-                                                                            alt="" class="menu-column__icon-2">
-                                                                    </div>
-                                                                    <h2 class="menu-column__heading">
-                                                                        Wearable Technology
-                                                                    </h2>
-                                                                </div>
-                                                                <div class="menu-column__content">
-                                                                    <ul class="menu-column__list">
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">
-                                                                                Galaxy Watch
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">
-                                                                                Apple Watch
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">
-                                                                                Fitness Trackers
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">
-                                                                                Virtual Reality
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">
-                                                                                Headphones
-                                                                            </a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
                                                         </div>
 
                                                         <!-- Sub Menu Column 2 -->
                                                         <div class="sub-menu__column">
-                                                            <!-- Menu Column 2.1 -->
-                                                            <div class="menu-column">
-                                                                <div class="menu-column__header">
-                                                                    <div class="menu-column__icon">
-                                                                        <img src="./assets/img/category/cate-4.1.svg"
-                                                                            alt="" class="menu-column__icon-1">
-                                                                        <img src="./assets/img/category/cate-4.2.svg"
-                                                                            alt="" class="menu-column__icon-2">
-                                                                    </div>
-                                                                    <h2 class="menu-column__heading">
-                                                                        Computers
-                                                                    </h2>
-                                                                </div>
-                                                                <div class="menu-column__content">
-                                                                    <ul class="menu-column__list">
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">
-                                                                                Shop All Computers
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">
-                                                                                Laptops
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">
-                                                                                PC Gaming
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">
-                                                                                Monitors
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">
-                                                                                Chromebook
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">
-                                                                                Printers & Ink
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">
-                                                                                Shop all TVs
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">
-                                                                                Computer Accessories
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">
-                                                                                Desktops
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">
-                                                                                Tax Software
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">
-                                                                                Computer Software
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="menu-column__item">
-                                                                            <a href="#!" class="menu-column__link">
-                                                                                PC Finder
-                                                                            </a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <!-- Sub Menu Column 3 -->
-                                                        <div class="sub-menu__column">
                                                             <!-- Menu Column 3.1 -->
                                                             <div class="menu-column">
                                                                 <div class="menu-column__header">
-                                                                    <div class="menu-column__icon">
+                                                                    <div class="menu-column__icon d-xl-none d-lg-block">
                                                                         <img src="./assets/img/category/cate-5.1.svg"
                                                                             alt="" class="menu-column__icon-1">
                                                                         <img src="./assets/img/category/cate-5.2.svg"
@@ -265,7 +196,7 @@
                                                             <!-- Menu Column 2.2 -->
                                                             <div class="menu-column">
                                                                 <div class="menu-column__header">
-                                                                    <div class="menu-column__icon">
+                                                                    <div class="menu-column__icon d-xl-none d-lg-block">
                                                                         <img src="./assets/img/category/cate-6.1.svg"
                                                                             alt="" class="menu-column__icon-1">
                                                                         <img src="./assets/img/category/cate-6.2.svg"
@@ -321,6 +252,102 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+
+                                                        <!-- Sub Menu Column 3 -->
+                                                        <div class="sub-menu__column">
+                                                            <!-- Menu Column 2.1 -->
+                                                            <div class="menu-column">
+                                                                <div class="menu-column__header">
+                                                                    <div class="menu-column__icon d-xl-none d-lg-block">
+                                                                        <img src="./assets/img/category/cate-4.1.svg"
+                                                                            alt="" class="menu-column__icon-1">
+                                                                        <img src="./assets/img/category/cate-4.2.svg"
+                                                                            alt="" class="menu-column__icon-2">
+                                                                    </div>
+                                                                    <h2 class="menu-column__heading">
+                                                                        Computers
+                                                                    </h2>
+                                                                </div>
+                                                                <div class="menu-column__content">
+                                                                    <ul class="menu-column__list">
+                                                                        <li class="menu-column__item">
+                                                                            <a href="#!" class="menu-column__link">
+                                                                                Chromebook
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="menu-column__item">
+                                                                            <a href="#!" class="menu-column__link">
+                                                                                Printers & Ink
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="menu-column__item">
+                                                                            <a href="#!" class="menu-column__link">
+                                                                                Shop all TVs
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="menu-column__item">
+                                                                            <a href="#!" class="menu-column__link">
+                                                                                Computer Accessories
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="menu-column__item">
+                                                                            <a href="#!" class="menu-column__link">
+                                                                                Desktops
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="menu-column__item">
+                                                                            <a href="#!" class="menu-column__link">
+                                                                                Tax Software
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="menu-column__item">
+                                                                            <a href="#!" class="menu-column__link">
+                                                                                Computer Software
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="menu-column__item">
+                                                                            <a href="#!" class="menu-column__link">
+                                                                                PC Finder
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Menu Column 3.1 -->
+                                                            <div class="menu-column">
+                                                                <div class="menu-column__header">
+                                                                    <div class="menu-column__icon d-xl-none d-lg-block">
+                                                                        <img src="./assets/img/category/cate-5.1.svg"
+                                                                            alt="" class="menu-column__icon-1">
+                                                                        <img src="./assets/img/category/cate-5.2.svg"
+                                                                            alt="" class="menu-column__icon-2">
+                                                                    </div>
+                                                                    <h2 class="menu-column__heading">
+                                                                        Savings
+                                                                    </h2>
+                                                                </div>
+                                                                <div class="menu-column__content">
+                                                                    <ul class="menu-column__list">
+                                                                        <li class="menu-column__item">
+                                                                            <a href="#!" class="menu-column__link">
+                                                                                Tech Savings
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="menu-column__item">
+                                                                            <a href="#!" class="menu-column__link">
+                                                                                Overstock Savings
+                                                                            </a>
+                                                                        </li>
+                                                                        <li class="menu-column__item">
+                                                                            <a href="#!" class="menu-column__link">
+                                                                                Tech Rollbacks
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </li>
                                                 <li class="menu-column__item">
@@ -333,7 +360,7 @@
                                                             <!-- Menu Column 1.1 -->
                                                             <div class="menu-column">
                                                                 <div class="menu-column__header">
-                                                                    <div class="menu-column__icon">
+                                                                    <div class="menu-column__icon d-xl-none d-lg-block">
                                                                         <img src="./assets/img/category/cate-2.1.svg"
                                                                             alt="" class="menu-column__icon-1">
                                                                         <img src="./assets/img/category/cate-2.2.svg"
@@ -387,7 +414,7 @@
                                                             <!-- Menu Column 1.2 -->
                                                             <div class="menu-column">
                                                                 <div class="menu-column__header">
-                                                                    <div class="menu-column__icon">
+                                                                    <div class="menu-column__icon d-xl-none d-lg-block">
                                                                         <img src="./assets/img/category/cate-3.1.svg"
                                                                             alt="" class="menu-column__icon-1">
                                                                         <img src="./assets/img/category/cate-3.2.svg"
@@ -434,7 +461,7 @@
                                                             <!-- Menu Column 2.1 -->
                                                             <div class="menu-column">
                                                                 <div class="menu-column__header">
-                                                                    <div class="menu-column__icon">
+                                                                    <div class="menu-column__icon d-xl-none d-lg-block">
                                                                         <img src="./assets/img/category/cate-4.1.svg"
                                                                             alt="" class="menu-column__icon-1">
                                                                         <img src="./assets/img/category/cate-4.2.svg"
@@ -516,7 +543,7 @@
                                                             <!-- Menu Column 3.1 -->
                                                             <div class="menu-column">
                                                                 <div class="menu-column__header">
-                                                                    <div class="menu-column__icon">
+                                                                    <div class="menu-column__icon d-xl-none d-lg-block">
                                                                         <img src="./assets/img/category/cate-5.1.svg"
                                                                             alt="" class="menu-column__icon-1">
                                                                         <img src="./assets/img/category/cate-5.2.svg"
@@ -550,7 +577,7 @@
                                                             <!-- Menu Column 2.2 -->
                                                             <div class="menu-column">
                                                                 <div class="menu-column__header">
-                                                                    <div class="menu-column__icon">
+                                                                    <div class="menu-column__icon d-xl-none d-lg-block">
                                                                         <img src="./assets/img/category/cate-6.1.svg"
                                                                             alt="" class="menu-column__icon-1">
                                                                         <img src="./assets/img/category/cate-6.2.svg"
@@ -618,7 +645,7 @@
                                                             <!-- Menu Column 1.1 -->
                                                             <div class="menu-column">
                                                                 <div class="menu-column__header">
-                                                                    <div class="menu-column__icon">
+                                                                    <div class="menu-column__icon d-xl-none d-lg-block">
                                                                         <img src="./assets/img/category/cate-2.1.svg"
                                                                             alt="" class="menu-column__icon-1">
                                                                         <img src="./assets/img/category/cate-2.2.svg"
@@ -672,7 +699,7 @@
                                                             <!-- Menu Column 1.2 -->
                                                             <div class="menu-column">
                                                                 <div class="menu-column__header">
-                                                                    <div class="menu-column__icon">
+                                                                    <div class="menu-column__icon d-xl-none d-lg-block">
                                                                         <img src="./assets/img/category/cate-3.1.svg"
                                                                             alt="" class="menu-column__icon-1">
                                                                         <img src="./assets/img/category/cate-3.2.svg"
@@ -719,7 +746,7 @@
                                                             <!-- Menu Column 2.1 -->
                                                             <div class="menu-column">
                                                                 <div class="menu-column__header">
-                                                                    <div class="menu-column__icon">
+                                                                    <div class="menu-column__icon d-xl-none d-lg-block">
                                                                         <img src="./assets/img/category/cate-4.1.svg"
                                                                             alt="" class="menu-column__icon-1">
                                                                         <img src="./assets/img/category/cate-4.2.svg"
@@ -801,7 +828,7 @@
                                                             <!-- Menu Column 3.1 -->
                                                             <div class="menu-column">
                                                                 <div class="menu-column__header">
-                                                                    <div class="menu-column__icon">
+                                                                    <div class="menu-column__icon d-xl-none d-lg-block">
                                                                         <img src="./assets/img/category/cate-5.1.svg"
                                                                             alt="" class="menu-column__icon-1">
                                                                         <img src="./assets/img/category/cate-5.2.svg"
@@ -835,7 +862,7 @@
                                                             <!-- Menu Column 2.2 -->
                                                             <div class="menu-column">
                                                                 <div class="menu-column__header">
-                                                                    <div class="menu-column__icon">
+                                                                    <div class="menu-column__icon d-xl-none d-lg-block">
                                                                         <img src="./assets/img/category/cate-6.1.svg"
                                                                             alt="" class="menu-column__icon-1">
                                                                         <img src="./assets/img/category/cate-6.2.svg"
@@ -970,7 +997,7 @@
                                         <!-- Menu Column 1.1 -->
                                         <div class="menu-column">
                                             <div class="menu-column__header">
-                                                <div class="menu-column__icon">
+                                                <div class="menu-column__icon d-xl-none d-lg-block">
                                                     <img src="./assets/img/category/cate-7.1.svg" alt=""
                                                         class="menu-column__icon-1">
                                                     <img src="./assets/img/category/cate-7.2.svg" alt=""
@@ -1004,7 +1031,7 @@
                                         <!-- Menu Column 1.2 -->
                                         <div class="menu-column">
                                             <div class="menu-column__header">
-                                                <div class="menu-column__icon">
+                                                <div class="menu-column__icon d-xl-none d-lg-block">
                                                     <img src="./assets/img/category/cate-8.1.svg" alt=""
                                                         class="menu-column__icon-1">
                                                     <img src="./assets/img/category/cate-8.2.svg" alt=""
@@ -1071,7 +1098,7 @@
                                         <!-- Menu Column 2.1 -->
                                         <div class="menu-column">
                                             <div class="menu-column__header">
-                                                <div class="menu-column__icon">
+                                                <div class="menu-column__icon d-xl-none d-lg-block">
                                                     <img src="./assets/img/category/cate-9.1.svg" alt=""
                                                         class="menu-column__icon-1">
                                                     <img src="./assets/img/category/cate-9.2.svg" alt=""
@@ -1130,7 +1157,7 @@
                                         <!-- Menu Column 2.2 -->
                                         <div class="menu-column">
                                             <div class="menu-column__header">
-                                                <div class="menu-column__icon">
+                                                <div class="menu-column__icon d-xl-none d-lg-block">
                                                     <img src="./assets/img/category/cate-10.1.svg" alt=""
                                                         class="menu-column__icon-1">
                                                     <img src="./assets/img/category/cate-10.2.svg" alt=""
@@ -1167,7 +1194,7 @@
                                         <!-- Menu Column 3.1 -->
                                         <div class="menu-column">
                                             <div class="menu-column__header">
-                                                <div class="menu-column__icon">
+                                                <div class="menu-column__icon d-xl-none d-lg-block">
                                                     <img src="./assets/img/category/cate-11.1.svg" alt=""
                                                         class="menu-column__icon-1">
                                                     <img src="./assets/img/category/cate-11.2.svg" alt=""
@@ -1211,7 +1238,7 @@
                                         <!-- Menu Column 2.2 -->
                                         <div class="menu-column">
                                             <div class="menu-column__header">
-                                                <div class="menu-column__icon">
+                                                <div class="menu-column__icon d-xl-none d-lg-block">
                                                     <img src="./assets/img/category/cate-12.1.svg" alt=""
                                                         class="menu-column__icon-1">
                                                     <img src="./assets/img/category/cate-12.2.svg" alt=""
@@ -1268,7 +1295,7 @@
                                         <!-- Menu Column 3.1 -->
                                         <div class="menu-column">
                                             <div class="menu-column__header">
-                                                <div class="menu-column__icon">
+                                                <div class="menu-column__icon d-xl-none d-lg-block">
                                                     <img src="./assets/img/category/cate-13.1.svg" alt=""
                                                         class="menu-column__icon-1">
                                                     <img src="./assets/img/category/cate-13.2.svg" alt=""
@@ -1307,7 +1334,7 @@
                                         <!-- Menu Column 2.2 -->
                                         <div class="menu-column">
                                             <div class="menu-column__header">
-                                                <div class="menu-column__icon">
+                                                <div class="menu-column__icon d-xl-none d-lg-block">
                                                     <img src="./assets/img/category/cate-14.1.svg" alt=""
                                                         class="menu-column__icon-1">
                                                     <img src="./assets/img/category/cate-14.2.svg" alt=""
@@ -1382,7 +1409,7 @@
                                         <!-- Menu Column 1.1 -->
                                         <div class="menu-column">
                                             <div class="menu-column__header">
-                                                <div class="menu-column__icon">
+                                                <div class="menu-column__icon d-xl-none d-lg-block">
                                                     <img src="./assets/img/category/cate-7.1.svg" alt=""
                                                         class="menu-column__icon-1">
                                                     <img src="./assets/img/category/cate-7.2.svg" alt=""
@@ -1424,7 +1451,7 @@
                                         <!-- Menu Column 1.2 -->
                                         <div class="menu-column">
                                             <div class="menu-column__header">
-                                                <div class="menu-column__icon">
+                                                <div class="menu-column__icon d-xl-none d-lg-block">
                                                     <img src="./assets/img/category/cate-15.1.svg" alt=""
                                                         class="menu-column__icon-1">
                                                     <img src="./assets/img/category/cate-15.2.svg" alt=""
@@ -1463,7 +1490,7 @@
                                         <!-- Menu Column 2.1 -->
                                         <div class="menu-column">
                                             <div class="menu-column__header">
-                                                <div class="menu-column__icon">
+                                                <div class="menu-column__icon d-xl-none d-lg-block">
                                                     <img src="./assets/img/category/cate-16.1.svg" alt=""
                                                         class="menu-column__icon-1">
                                                     <img src="./assets/img/category/cate-16.2.svg" alt=""
@@ -1507,7 +1534,7 @@
                                         <!-- Menu Column 2.2 -->
                                         <div class="menu-column">
                                             <div class="menu-column__header">
-                                                <div class="menu-column__icon">
+                                                <div class="menu-column__icon d-xl-none d-lg-block">
                                                     <img src="./assets/img/category/cate-17.1.svg" alt=""
                                                         class="menu-column__icon-1">
                                                     <img src="./assets/img/category/cate-17.2.svg" alt=""
@@ -1538,7 +1565,7 @@
                                         <!-- Menu Column 3.1 -->
                                         <div class="menu-column">
                                             <div class="menu-column__header">
-                                                <div class="menu-column__icon">
+                                                <div class="menu-column__icon d-xl-none d-lg-block">
                                                     <img src="./assets/img/category/cate-18.1.svg" alt=""
                                                         class="menu-column__icon-1">
                                                     <img src="./assets/img/category/cate-18.2.svg" alt=""
@@ -1582,7 +1609,7 @@
                                         <!-- Menu Column 3.1 -->
                                         <div class="menu-column">
                                             <div class="menu-column__header">
-                                                <div class="menu-column__icon">
+                                                <div class="menu-column__icon d-xl-none d-lg-block">
                                                     <img src="./assets/img/category/cate-19.1.svg" alt=""
                                                         class="menu-column__icon-1">
                                                     <img src="./assets/img/category/cate-19.2.svg" alt=""
@@ -1636,15 +1663,16 @@
                 </li>
             </ul>
         </nav>
+        <div class="navbar__overlay js-toggle" toggle-target="#navbar"></div>
 
         <!-- Action  -->
         <div class="top-act">
-            <div class="top-act__group top-act__group--single">
+            <div class="top-act__group d-lg-none top-act__group--single">
                 <button class="top-act__btn">
                     <img src="./assets/icons/search.svg" alt="" class="icon top-act__icon">
                 </button>
             </div>
-            <div class="top-act__group">
+            <div class="top-act__group d-md-none">
                 <button class="top-act__btn">
                     <img src="./assets/icons/heart.svg" alt="" class="icon top-act__icon">
                     <span class="top-act__title">03</span>

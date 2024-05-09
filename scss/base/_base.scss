@@ -130,6 +130,7 @@ a {
   color: inherit;
 }
 
+a,
 input,
 button,
 textarea,
@@ -137,12 +138,14 @@ select {
   font-size: inherit;
   font-family: inherit;
   color: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 button {
   border: none;
   outline: none;
   background: transparent;
+  cursor: pointer;
 }
 .icon {
   filter: var(--icon-color);
