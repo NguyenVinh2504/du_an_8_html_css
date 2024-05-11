@@ -1,0 +1,73 @@
+@use "../abstracts";
+
+.product-card {
+  padding: 16px;
+  border-radius: 20px;
+  background: var(--product-card-bg);
+  box-shadow: 0px 20px 60px 10px var(--product-card-shadow);
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__img-wrap {
+    position: relative;
+    padding-top: calc(284 / 280 * 100%);
+    flex-shrink: 0;
+  }
+
+  &__thumb {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &__like {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  &__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__title,
+  &__price,
+  &__rate {
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 150%;
+  }
+
+  &__title {
+    @include abstracts.line-clamp($line-number: 3);
+    flex: 1;
+  }
+
+  &__name {
+    color: var(--secondary-color-secondary-2);
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 146.667%;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__ratting {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+}

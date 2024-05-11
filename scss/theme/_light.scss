@@ -22,4 +22,23 @@ html {
   // Side bar
   --sidebar-bg: var(--secondary-color-background);
   --sidebar-shadow: rgba(200, 200, 200, 0.4);
+
+  // Category Item
+  --cate-item-bg: var(--background-3);
+  --cate-item-thumb-bg: var(--secondary-color-background);
+  --cate-item-title-color: #000;
+
+  @include abstracts.screen("md") {
+    --cate-item-bg: var(--secondary-color-background);
+  }
+
+  // Buttons
+  --filter-btn-color: #6c6c72;
+  --filter-btn-bg: var(--secondary-color-background);
+
+  --like-btn-bg: var(--secondary-color-background);
+
+  // Product card
+  --product-card-bg: var(--secondary-color-background);
+  --product-card-shadow: rgba(237, 237, 246, 0.2);
 }

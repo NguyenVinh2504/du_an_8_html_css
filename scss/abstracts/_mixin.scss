@@ -17,3 +17,12 @@ $grid-breakpoints: (
     @error 'The value "#{$key}" is not in breakpoints list.';
   }
 }
+
+@mixin line-clamp($line-number) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  -webkit-line-clamp: $line-number;
+}
