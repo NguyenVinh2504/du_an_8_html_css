@@ -141,14 +141,14 @@ select {
   font-family: inherit;
   color: inherit;
   -webkit-tap-highlight-color: transparent;
+  outline: none;
+  border: none;
+  padding: 0;
+  background: transparent;
 }
 
 button {
-  border: none;
-  outline: none;
-  background: transparent;
   cursor: pointer;
-  padding: 0;
 }
 .icon {
   filter: var(--icon-color);

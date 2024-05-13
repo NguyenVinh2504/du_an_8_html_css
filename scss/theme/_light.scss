@@ -41,4 +41,9 @@ html {
   // Product card
   --product-card-bg: var(--secondary-color-background);
   --product-card-shadow: rgba(237, 237, 246, 0.2);
+
+  // Filter form
+  --filter-form-bg: var(--secondary-color-background);
+  --filter-form-shadow: rgba(200, 200, 200, 0.4);
+  --filter-form-tag-bg: var(--secondary-color-secondary-5);
 }

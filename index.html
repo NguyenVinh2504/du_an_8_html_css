@@ -111,10 +111,91 @@
                     <h2 class="home__heading">
                         Total LavAzza 1320
                     </h2>
-                    <button class="filter-btn">
-                        Filter
-                        <img src="./assets/icons/filter.svg" alt="" class="icon">
-                    </button>
+                    <div class="filter-wrap">
+                        <button class="filter-btn js-toggle" toggle-target="#home-filter">
+                            Filter
+                            <img src="./assets/icons/filter.svg" alt="" class="icon">
+                        </button>
+                        <section class="filter hide" id="home-filter">
+                            <img src="./assets/icons/arrow-up.png" alt="" class="filter__arrow">
+                            <h3 class="filter__heading">Filter</h3>
+                            <form class="filter__form">
+                                <div class="filter__main">
+                                    <div class="filter__price">
+                                        <label for="" class="filter__form-label">Price</label>
+                                        <div class="filter__form-group">
+                                            <div class="filter__form-slider"></div>
+                                        </div>
+                                        <div class="filter__form-group filter__form-group--inline">
+                                            <div>
+                                                <label for=""
+                                                    class="filter__form-label filter__form-label--small">Minimum</label>
+                                                <div class="filter__form-text-input">
+                                                    <input type="text" value="$30.00" class="filter__form-input">
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <label for=""
+                                                    class="filter__form-label filter__form-label--small">Maximum</label>
+                                                <div class="filter__form-text-input">
+                                                    <input type="text" value="$100.00" class="filter__form-input">
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="filter__separate"></div>
+                                    <div class="filter__size-weight">
+                                        <label for="" class="filter__form-label">Price</label>
+                                        <div class="filter__form-group">
+                                            <div class="filter__select-wrap">
+                                                <div class="filter__select">
+                                                    500g
+                                                    <img src="./assets/icons/select-arrow.svg" alt="" class="icon">
+                                                </div>
+                                                <div class="filter__select">
+                                                    Gram
+                                                    <img src="./assets/icons/select-arrow.svg" alt="" class="icon">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="filter__form-group">
+                                            <div class="filter__tags">
+                                                <button class="filter__tag">Small</button>
+                                                <button class="filter__tag">Medium</button>
+                                                <button class="filter__tag">Large</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="filter__separate"></div>
+                                    <div class="filter__brand">
+                                        <label for="" class="filter__form-label">Brand</label>
+                                        <div class="filter__form-group">
+                                            <div class="filter__form-text-input filter__form-text-input--large">
+                                                <input type="text" class="filter__form-input"
+                                                    placeholder="Search brand name">
+                                                <img src="./assets/icons/search.svg" alt="" class="filter__icon icon">
+                                            </div>
+                                        </div>
+                                        <div class="filter__form-group">
+                                            <div class="filter__tags">
+                                                <button class="filter__tag">Lavazza</button>
+                                                <button class="filter__tag">Nescafe</button>
+                                                <button class="filter__tag">Starbucks</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="filter__action">
+                                    <button class="btn btn--text filter__cancel js-toggle"
+                                        toggle-target="#home-filter">Cancel</button>
+                                    <button class="btn btn--primary filter__submit">Show Result</button>
+                                </div>
+                            </form>
+                        </section>
+                    </div>
                 </div>
                 <div class="row row-cols-4 row-cols-lg-2 row-cols-sm-1 g-lg-3 g-md-2">
                     <div class="col">
