@@ -1911,10 +1911,11 @@ html.dark {
 
 .slideshow {
   position: relative;
+  overflow: hidden;
+  border-radius: 20px;
 }
 .slideshow__inner {
   display: flex;
-  overflow: hidden;
 }
 .slideshow__item {
   position: relative;

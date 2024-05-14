@@ -2,9 +2,11 @@
 
 .slideshow {
   position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+
   &__inner {
     display: flex;
-    overflow: hidden;
   }
 
   &__item {

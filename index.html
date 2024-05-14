@@ -34,8 +34,8 @@
         <main>
             <div class="home__container">
                 <div class="slideshow">
-                    <div class="slideshow__inner">
-                        <div class="slideshow__item">
+                    <div class="slideshow__inner" id="js-slider-wrap" timeLoop="4000">
+                        <div class="slideshow__item js-slider-item">
                             <a href="#!">
                                 <picture>
                                     <source media="(max-width: 767.98px)" srcset="./assets/img/slideshow/item-1-md.png">
@@ -43,12 +43,42 @@
                                 </picture>
                             </a>
                         </div>
+                        <div class="slideshow__item js-slider-item">
+                            <a href="#!">
+                                <picture>
+                                    <source media="(max-width: 767.98px)"
+                                        srcset="https://image.tmdb.org/t/p/original/lLh39Th5plbrQgbQ4zyIULsd0Pp.jpg">
+                                    <img src="https://image.tmdb.org/t/p/original/lLh39Th5plbrQgbQ4zyIULsd0Pp.jpg"
+                                        alt="" class="slideshow__img">
+                                </picture>
+                            </a>
+                        </div>
+                        <div class="slideshow__item js-slider-item">
+                            <a href="#!">
+                                <picture>
+                                    <source media="(max-width: 767.98px)"
+                                        srcset="https://image.tmdb.org/t/p/original/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg">
+                                    <img src="https://image.tmdb.org/t/p/original/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg"
+                                        alt="" class="slideshow__img">
+                                </picture>
+                            </a>
+                        </div>
+                        <div class="slideshow__item js-slider-item">
+                            <a href="#!">
+                                <picture>
+                                    <source media="(max-width: 767.98px)"
+                                        srcset="https://image.tmdb.org/t/p/original/vcFW09U4834DyFOeRZpsx9x1D3S.jpg">
+                                    <img src="https://image.tmdb.org/t/p/original/vcFW09U4834DyFOeRZpsx9x1D3S.jpg"
+                                        alt="" class="slideshow__img">
+                                </picture>
+                            </a>
+                        </div>
                     </div>
 
                     <div class="slideshow__page">
-                        <span class="slideshow__num">1</span>
+                        <span class="slideshow__num" id="js-page-min">1</span>
                         <span class="slideshow__slider"></span>
-                        <span class="slideshow__num">5</span>
+                        <span class="slideshow__num" id="js-page-max">5</span>
                     </div>
                 </div>
             </div>
@@ -467,5 +497,6 @@
         </script>
     </div>
 </body>
+<script src="./assets/js/swiper.js"></script>
 
 </html>
