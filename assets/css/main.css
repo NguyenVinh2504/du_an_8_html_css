@@ -1444,6 +1444,7 @@ html {
   --filter-form-bg: var(--secondary-color-background);
   --filter-form-shadow: rgba(200, 200, 200, 0.4);
   --filter-form-tag-bg: var(--secondary-color-secondary-5);
+  --footer-bg-color: var(--header-bg-color);
 }
 @media (max-width: 991.98px) {
   html {
@@ -1532,6 +1533,11 @@ html.dark {
   .top-bar {
     padding: 16px 0;
     justify-content: space-between;
+  }
+}
+@media (max-width: 991.98px) {
+  .top-bar__logo-title {
+    font-size: 1.8rem !important;
   }
 }
 
@@ -1715,6 +1721,165 @@ html.dark {
   display: block;
 }
 
+.footer {
+  padding: 50px 0;
+  font-size: 1.4rem;
+  background: var(--footer-bg-color);
+}
+.footer__row {
+  display: grid;
+  grid-template-columns: 2fr 1.3fr 1fr 1fr 1.5fr;
+  gap: 60px;
+}
+@media (max-width: 991.98px) {
+  .footer__row {
+    grid-template-columns: 1fr;
+  }
+}
+.footer__desc {
+  margin-top: 30px;
+  line-height: 1.5;
+}
+@media (max-width: 991.98px) {
+  .footer__desc {
+    width: min(400px, 100%);
+  }
+}
+.footer__help-text {
+  margin-top: 40px;
+}
+.footer__help-text, .footer__link, .footer__text {
+  line-height: 1.4;
+}
+.footer__form-email {
+  display: flex;
+  gap: 10px;
+  padding: 16px 0;
+}
+@media (max-width: 1199.98px) {
+  .footer__form-email {
+    flex-direction: column;
+  }
+}
+@media (max-width: 991.98px) {
+  .footer__form-email {
+    flex-direction: row;
+  }
+}
+.footer__form-input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 2px solid var(--secondary-color-secondary-3);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+@media (max-width: 991.98px) {
+  .footer__form-input {
+    width: 40%;
+  }
+}
+@media (max-width: 767.98px) {
+  .footer__form-input {
+    width: 50%;
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 575.98px) {
+  .footer__form-input {
+    flex: 1;
+  }
+}
+.footer__heading {
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 1.8rem;
+}
+.footer__list {
+  margin-top: 18px;
+}
+.footer__link, .footer__text {
+  padding: 8px 0;
+}
+.footer__link {
+  display: inline-block;
+}
+.footer__link:hover {
+  color: var(--blue-blue);
+}
+.footer__label {
+  margin-top: 20px;
+  font-weight: 500;
+  display: block;
+}
+@media (max-width: 991.98px) {
+  .footer__text {
+    width: min(400px, 100%);
+  }
+}
+.footer__bottom {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 767.98px) {
+  .footer__bottom {
+    flex-direction: column-reverse;
+    gap: 50px;
+  }
+}
+.footer__socials {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.footer__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  filter: grayscale(50%);
+  transition: translate, filter;
+  transition-duration: 0.3s;
+}
+.footer__social-link:hover {
+  filter: grayscale(0);
+  translate: 0 -3px;
+}
+.footer__social-link--facebook {
+  background: #4863a9;
+}
+.footer__social-link--youtube {
+  background: #f00;
+}
+.footer__social-link--tiktok {
+  background: #000;
+}
+.footer__social-link--twitter {
+  background: #4999e6;
+}
+.footer__social-link--linkedin {
+  background: #2f71ab;
+}
+@media (max-width: 575.98px) {
+  .footer__social-link {
+    width: 42px;
+    height: 42px;
+  }
+}
+.footer__social-icon {
+  width: 14px;
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);
+}
+@media (max-width: 575.98px) {
+  .footer__social-icon {
+    width: 18px;
+  }
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -1735,11 +1900,6 @@ html.dark {
   font-size: 2.2rem;
   font-weight: 700;
   line-height: 145.455%;
-}
-@media (max-width: 991.98px) {
-  .logo__title {
-    font-size: 1.8rem;
-  }
 }
 
 .dropdown {
@@ -2188,6 +2348,7 @@ html.dark {
 }
 .btn--primary {
   background: var(--yellow-yellow);
+  color: var(--dark-1);
 }
 .btn--disabled {
   opacity: 0.5;
@@ -2490,6 +2651,9 @@ html.dark {
   font-size: 1.4rem;
 }
 
+.home {
+  margin-bottom: 50px;
+}
 .home__container {
   margin-top: 40px;
 }
