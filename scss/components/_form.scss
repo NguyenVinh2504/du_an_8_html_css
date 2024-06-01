@@ -2,7 +2,7 @@
 $error-color: #ed4337;
 
 .form {
-  &:has(:invalid) &__submit-btn {
+  &:has(&__input:invalid) &__submit-btn {
     opacity: 0.5;
     pointer-events: none;
   }

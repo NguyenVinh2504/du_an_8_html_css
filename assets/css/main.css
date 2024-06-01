@@ -2301,7 +2301,7 @@ html.dark {
   font-size: 1.4rem;
 }
 
-.form:has(:invalid) .form__submit-btn {
+.form:has(.form__input:invalid) .form__submit-btn {
   opacity: 0.5;
   pointer-events: none;
 }
