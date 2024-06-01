@@ -1,6 +1,5 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
-
 /**
  * Hàm tải template
  *
@@ -149,6 +148,10 @@ function handleActiveMenu() {
 window.addEventListener("template-loaded", initJsToggle);
 
 function initJsToggle() {
+
+    const body = $('body')
+
+
     $$(".js-toggle").forEach((button) => {
         const target = button.getAttribute("toggle-target");
         if (!target) {
@@ -166,6 +169,17 @@ function initJsToggle() {
                 $(target).classList.toggle("hide", !isHidden);
                 $(target).classList.toggle("show", isHidden);
             });
+            console.log(isHidden);
+
+            if (target === '#home-filter') {
+                body.classList.toggle("overflow-y");
+            } else {
+                if (isHidden) {
+                    body.style.overflowY = 'hidden'
+                } else {
+                    body.style = ''
+                }
+            }
         };
         document.onclick = function (e) {
             if (!e.target.closest(target)) {

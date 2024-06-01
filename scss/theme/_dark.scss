@@ -33,10 +33,12 @@ html.dark {
   --cate-item-title-color: #fff;
 
   // Buttons
+  --button-outline-text-color: var(--dark-3);
   --filter-btn-color: var(--secondary-color-background);
   --filter-btn-bg: var(--dark-1);
-
   --like-btn-bg: var(--dark-2);
+  --button-icon-color: brightness(0) saturate(100%) invert(81%) sepia(8%)
+    saturate(100%) hue-rotate(190deg) brightness(92%) contrast(89%);
 
   // Product card
   --product-card-bg: var(--dark-1);
@@ -48,4 +50,17 @@ html.dark {
   --filter-form-tag-bg: var(--dark-1);
   --filter-arrow-color: brightness(0) saturate(100%) invert(17%) sepia(10%)
     saturate(1342%) hue-rotate(185deg) brightness(93%) contrast(87%);
+
+  //Form
+  --form-placeholder-color: var(--dark-3);
+  --form-input-hover: var(--secondary-color-background);
+  --form-input-focus: var(--secondary-color);
+  --form-input-border: var(--dark-3);
+
+  // Auth
+  --auth-content-bg: var(--dark-2);
+  --auth-intro-bg: var(--dark-1);
+  --auth-intro-text-color: var(--dark-3);
+  --auth-heading-color: var(--dark-3);
+  --auth-text: var(--dark-3);
 }

@@ -13,7 +13,7 @@
 }
 .top-bar {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 
   @extend %flexItemsCenter;
   padding: 20px 0;
@@ -34,10 +34,25 @@
     padding: 16px 0;
     justify-content: space-between;
   }
-
-  &__logo-title {
+  &__logo {
     @include abstracts.screen("lg") {
-      font-size: 1.8rem !important;
+      gap: 10px !important;
+      margin-left: 40px;
+      &-title {
+        font-size: 1.8rem !important;
+      }
+
+      &-img {
+        width: 24px;
+      }
+    }
+
+    @include abstracts.screen("md") {
+      margin-left: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
     }
   }
 }
@@ -197,9 +212,7 @@
 
   margin-left: auto;
   gap: 20px;
-  @include abstracts.screen("md") {
-    margin-left: 0;
-  }
+
   &__group {
     @extend %flexItemsCenter;
 
@@ -239,5 +252,16 @@
     height: 50px;
     border-radius: 8px;
     display: block;
+  }
+
+  @include abstracts.screen("md") {
+    margin-left: 0;
+
+    &__sign-up {
+      height: 40px;
+      padding: 0 8px;
+      font-size: 1.5rem;
+      margin-left: 0 !important;
+    }
   }
 }

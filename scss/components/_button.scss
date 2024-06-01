@@ -55,10 +55,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 
   user-select: none;
 
-  & + .btn {
+  & + .btn:not(.btn--no-margin) {
     margin-left: 20px;
   }
 
@@ -82,8 +83,12 @@
   }
 
   &--outline {
-    background: var(--secondary-color-background);
+    background: transparent;
     border: 1px solid var(--secondary-color-secondary-3);
+    color: var(--button-outline-text-color);
+    & > .btn__icon {
+      filter: var(--button-icon-color);
+    }
   }
 
   &--rounded {

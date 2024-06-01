@@ -49,4 +49,17 @@ html {
 
   // Footer
   --footer-bg-color: var(--header-bg-color);
+
+  //Form
+  --form-placeholder-color: var(--secondary-color-secondary-3);
+  --form-input-focus: var(--secondary-color-secondary-1);
+  --form-input-hover: var(--secondary-color-secondary-2);
+  --form-input-border: var(--secondary-color-secondary-3);
+
+  // Auth
+  --auth-content-bg: var(--secondary-color-background);
+  @include abstracts.screen("md") {
+    --auth-intro-bg: var(--secondary-color-background);
+  }
+  --auth-text: var(--secondary-color-secondary-2);
 }
