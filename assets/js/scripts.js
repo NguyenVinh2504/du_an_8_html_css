@@ -242,3 +242,166 @@ window.addEventListener("template-loaded", () => {
 
 // const isDark = localStorage.dark === "true";
 // document.querySelector("html").classList.toggle("dark", isDark);
+
+class PreviewProduct {
+    constructor() {
+        this.previewWrapper = $('#prod-preview__list')
+        this.previewTouchArea = $('#prod-preview__wrapper')
+        this.listProductThumb = $$('.prod-preview__thumb-img')
+        this.currentIndex = 0
+        this.activeClass = 'prod-preview__thumb-img--current'
+        this.previewWrapperOffsetWidth = this.previewWrapper.offsetWidth
+        this.previewWrapperWith = debounce.call(this, () => { this.previewWrapperOffsetWidth = this.previewWrapper.offsetWidth; this.translatePreviewWrapper() })
+        this.mouseX = 0;
+        this.initialX = 0;
+        this.mouseY = 0;
+        this.initialY = 0;
+        this.isSwiped = false;
+        this.events = {
+            mouse: {
+                down: "mousedown",
+                move: "mousemove",
+                up: "mouseup",
+            },
+            touch: {
+                down: "touchstart",
+                move: "touchmove",
+                up: "touchend",
+            },
+        };
+        this.deviceType = ""
+        this.rectLeft = this.previewTouchArea.getBoundingClientRect().left;
+        this.rectTop = this.previewTouchArea.getBoundingClientRect().top;
+        this.slidingSegment = 0
+        this.translateXCurrent = 0
+        this.direction = null
+    }
+    isTouchDevice = () => {
+        try {
+            //We try to create TouchEvent (it would fail for desktops and throw error)
+            document.createEvent("TouchEvent");
+            this.deviceType = "touch";
+            return true;
+        } catch (e) {
+            this.deviceType = "mouse";
+            return false;
+        }
+    };
+
+    getXY = (e) => {
+        this.mouseX = (!this.isTouchDevice() ? e.pageX : e.touches[0].pageX) - this.rectLeft;
+        this.mouseY = (!this.isTouchDevice() ? e.pageY : e.touches[0].pageY) - this.rectTop;
+    };
+
+    removeActive() {
+        $(`.${this.activeClass}`)?.classList.remove(this.activeClass);
+    }
+
+    getTranslateX() {
+        var style = window.getComputedStyle(this.previewWrapper);
+        var matrix = new WebKitCSSMatrix(style.transform);
+        return matrix.m41;
+    }
+
+    handleEvent() {
+        this.listProductThumb.forEach((productThumb) => {
+            productThumb.onclick = () => {
+                this.currentIndex = productThumb.getAttribute('tabIndex')
+                this.activeThumb()
+                this.translatePreviewWrapper()
+            }
+        })
+        window.addEventListener('resize', this.previewWrapperWith)
+        this.previewTouchArea.addEventListener(this.events[this.deviceType].down, (event) => {
+            this.isSwiped = true;
+            //Get X and Y Position
+            this.getXY(event);
+            this.initialX = this.mouseX;
+            this.initialY = this.mouseY;
+            this.translateXCurrent = this.getTranslateX()
+        });
+
+        this.previewTouchArea.addEventListener(this.events[this.deviceType].move, (event) => {
+            if (!this.isTouchDevice()) {
+                event.preventDefault();
+            }
+            if (this.isSwiped) {
+                this.getXY(event);
+                let diffX = this.mouseX - this.initialX;
+                let diffY = this.mouseY - this.initialY;
+                this.slidingSegment = Math.abs(Math.abs(diffX) / this.previewWrapper.offsetWidth) * this.previewWrapperOffsetWidth
+
+                if (Math.abs(diffY) > Math.abs(diffX)) {
+                    let output = diffY > 0 ? "Down" : "Up";
+                    // console.log(output);
+                } else {
+                    this.direction = diffX > 0 ? "Right" : "Left";
+                    // console.log(output);
+                    const translateXTotal = this.translateXCurrent + (this.direction === "Right" ? this.slidingSegment : -this.slidingSegment);
+                    if ((this.direction === 'Left' && this.currentIndex < this.listProductThumb.length - 1) ||
+                        (this.direction === 'Right' && this.currentIndex > 0)) {
+                        this.movePreviewWrapper(translateXTotal);
+                    }
+                }
+            }
+        });
+
+        this.previewTouchArea.addEventListener(this.events[this.deviceType].up, this.endSwipe);
+
+        this.previewTouchArea.addEventListener("mouseleave", this.endSwipe);
+    }
+
+    endSwipe = () => {
+        this.isSwiped = false;
+        if (this.slidingSegment > this.previewWrapperOffsetWidth / 5) {
+            if (this.direction === 'Left' && this.currentIndex < this.listProductThumb.length - 1) {
+                this.currentIndex++;
+            } else if (this.direction === 'Right' && this.currentIndex > 0) {
+                this.currentIndex--;
+            }
+        }
+        this.translatePreviewWrapper();
+        this.activeThumb()
+        this.direction = null;
+    };
+
+    translatePreviewWrapper() {
+        this.previewWrapper.style.transform = `translateX(${-this.previewWrapperOffsetWidth * this.currentIndex
+            }px)`;
+        this.previewWrapper.style.transitionDuration = '0.25s';
+        this.previewWrapper.style.transitionTimingFunction = 'ease-in-out'
+    }
+
+    movePreviewWrapper(translateXTotal) {
+        this.previewWrapper.style.transform = `translateX(${translateXTotal}px)`;
+        this.previewWrapper.style.transitionDuration = '0s';
+        this.previewWrapper.style.transitionTimingFunction = 'initial'
+    }
+
+    addIndex() {
+        this.listProductThumb.forEach((productThumb, index) => {
+            productThumb.setAttribute('tabIndex', index)
+        })
+    }
+
+    activeThumb() {
+        this.removeActive()
+        this.listProductThumb.forEach((productThumb) => {
+            const tabIndex = productThumb.getAttribute('tabIndex')
+            if (tabIndex == this.currentIndex) productThumb.classList.add(this.activeClass);
+        })
+    }
+    start() {
+        if (!this.previewWrapper) return
+        this.isTouchDevice();
+        this.isSwiped = false
+        this.handleEvent()
+        this.addIndex()
+    }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const previewProduct = new PreviewProduct()
+    previewProduct.start()
+})
+

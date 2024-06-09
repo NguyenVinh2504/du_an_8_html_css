@@ -3,8 +3,7 @@
 .auth {
   display: flex;
 
-  min-height: 100vh;
-  // min-height: -webkit-fill-available;
+  min-height: 100dvh;
 
   &__intro,
   &__content {
@@ -31,7 +30,7 @@
       top: 80px;
     }
     &-next {
-      bottom: 100px;
+      bottom: 60px;
     }
 
     &-img {

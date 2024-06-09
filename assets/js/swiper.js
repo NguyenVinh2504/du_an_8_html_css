@@ -12,6 +12,8 @@ class Slider {
         this.loop = true;
         this.idSetInterval = null;
         this.timeLoop = this.sliderWrapper.getAttribute("timeLoop") ?? 2000
+        this.sliderWrapperWidth = debounce.apply(this, [this.translateList, 100])
+
     }
     handleLoop() {
         this.idSetInterval = setInterval(() => {
@@ -42,6 +44,8 @@ class Slider {
                 this.sliderWrapper.style.transition = 'none';
             }
         });
+
+        window.addEventListener('resize', this.sliderWrapperWidth)
     }
 
     renderPageNumber() {
@@ -54,7 +58,7 @@ class Slider {
         }
     }
 
-    tranlateList() {
+    translateList = () => {
         this.sliderWrapper.style.transform = `translateX(${-this.sliderWrapper.offsetWidth * this.currentUser
             }px)`;
         this.sliderWrapper.style.transition = 'all 1s';
@@ -65,14 +69,14 @@ class Slider {
             return;
         }
         this.currentUser--;
-        this.tranlateList();
+        this.translateList();
     }
     nextUser() {
         if (this.currentUser >= this.sliders.length - 1) {
             return;
         }
         this.currentUser++;
-        this.tranlateList();
+        this.translateList();
         this.renderPageNumber()
     }
     render() {

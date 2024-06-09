@@ -45,7 +45,7 @@ html {
   // Filter form
   --filter-form-bg: var(--secondary-color-background);
   --filter-form-shadow: rgba(200, 200, 200, 0.4);
-  --filter-form-tag-bg: var(--secondary-color-secondary-5);
+  --form-tag-bg: var(--secondary-color-secondary-5);
 
   // Footer
   --footer-bg-color: var(--header-bg-color);
@@ -62,4 +62,33 @@ html {
     --auth-intro-bg: var(--secondary-color-background);
   }
   --auth-text: var(--secondary-color-secondary-2);
+
+  //Product detail
+  --product-detail-bg: var(--secondary-color-background);
+  --product-detail-info-content-bg: var(--secondary-color-background);
+  --product-detail-info-shadow: rgba(237, 237, 246, 0.2);
+  --product-info-bg: #f6f6f6;
+  @include abstracts.screen("md") {
+    --product-detail-bg: var(--secondary-color-secondary-6);
+  }
+  --tag-bg: var(--secondary-color-secondary-4);
+  //Breadcrumbs
+  --breadcrumbs-bg: var(--background-2);
+  --breadcrumbs-shadow: rgba(237, 237, 246, 0.2);
+  @include abstracts.screen("md") {
+    --breadcrumbs-bg: var(--secondary-color-background);
+  }
+
+  //Search bar
+  --search-bar-bg: var(--secondary-color-background);
+  --search-bar-placeholder: var(--secondary-color-secondary-2);
+
+  // Review Card
+  --review-card-bg: var(--secondary-color-secondary-6);
+  @include abstracts.screen("md") {
+    --review-card-bg: var(--secondary-color-background);
+  }
+
+  // Text content
+  --text-content-hr-bg: #ebebeb;
 }

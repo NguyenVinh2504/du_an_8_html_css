@@ -141,4 +141,88 @@ $error-color: #ed4337;
       top: 4px;
     }
   }
+
+  &__label {
+    font-size: 2.2rem;
+    font-weight: 500;
+    line-height: 145.455%;
+    display: block;
+    &--small {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__select {
+    font-size: 1.4rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    line-height: 142.857%;
+    @include abstracts.screen("xl") {
+      justify-content: space-between;
+    }
+
+    cursor: pointer;
+
+    &:first-child {
+      gap: 65px;
+      @include abstracts.screen("xl") {
+        width: calc(146 / 244 * 100%);
+        gap: 0px;
+      }
+      padding-right: 14px;
+    }
+
+    &:last-child {
+      gap: 17px;
+      @include abstracts.screen("xl") {
+        width: calc(98 / 244 * 100%);
+        gap: 0px;
+      }
+      padding-left: 14px;
+      border-left: 1px solid var(--secondary-color-secondary-3);
+      height: 35px;
+    }
+  }
+
+  &__select-wrap {
+    width: 272px;
+    height: 45px;
+    padding: 5px 14px;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    border: 1px solid var(--secondary-color-secondary-3);
+
+    @include abstracts.screen("xl") {
+      width: 100%;
+    }
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    align-items: center;
+
+    @include abstracts.screen("sm") {
+      gap: 10px;
+    }
+  }
+
+  &__tag {
+    color: var(--secondary-color-secondary-2);
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 142.857%;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: var(--form-tag-bg);
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+      color: var(--text-color);
+    }
+  }
 }

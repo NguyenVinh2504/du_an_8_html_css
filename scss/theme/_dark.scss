@@ -47,7 +47,7 @@ html.dark {
   // Filter form
   --filter-form-bg: var(--dark-4);
   --filter-form-shadow: rgba(0, 0, 0, 0.4);
-  --filter-form-tag-bg: var(--dark-1);
+  --form-tag-bg: var(--dark-1);
   --filter-arrow-color: brightness(0) saturate(100%) invert(17%) sepia(10%)
     saturate(1342%) hue-rotate(185deg) brightness(93%) contrast(87%);
 
@@ -63,4 +63,26 @@ html.dark {
   --auth-intro-text-color: var(--dark-3);
   --auth-heading-color: var(--dark-3);
   --auth-text: var(--dark-3);
+
+  //Product detail
+  --product-detail-bg: var(--dark-2);
+  --product-detail-info-content-bg: var(--dark-1);
+  --product-info-bg: var(--dark-1);
+  --product-detail-info-shadow: rgba(23, 28, 40, 0.2);
+  --card-text-color: var(--background-3);
+  --tag-bg: var(--dark-2);
+
+  //Breadcrumbs
+  --breadcrumbs-bg: var(--dark-1);
+  --breadcrumbs-shadow: rgba(23, 28, 40, 0.2);
+
+  //Search bar
+  --search-bar-bg: var(--dark-1);
+  --search-bar-placeholder: var(--dark-3);
+
+  // Review Card
+  --review-card-bg: var(--dark-1);
+
+  // Text content
+  --text-content-hr-bg: #3e4043;
 }
