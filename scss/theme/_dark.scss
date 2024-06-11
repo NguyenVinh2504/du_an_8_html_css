@@ -13,7 +13,11 @@ html.dark {
   @include abstracts.screen(lg) {
     --header-shadow-color: rgba(0, 0, 0, 0.2);
   }
-
+  //Header
+  --header-action-dropdown-bg: var(--dark-4);
+  --header-action-dropdown-shadow: rgba(23, 28, 40, 0.4);
+  --header-action-dropdown-arrow-color: brightness(0) saturate(100%) invert(17%)
+    sepia(10%) saturate(1342%) hue-rotate(185deg) brightness(93%) contrast(87%);
   //Dropdown
   --dropdown-bg-color: var(--dark-4);
   --dropdown-shadow-color: rgba(23, 28, 40, 0.4);

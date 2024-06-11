@@ -248,6 +248,7 @@ class PreviewProduct {
         this.previewWrapper = $('#prod-preview__list')
         this.previewTouchArea = $('#prod-preview__wrapper')
         this.listProductThumb = $$('.prod-preview__thumb-img')
+        this.listProduct = $$('.prod-preview__item')
         this.currentIndex = 0
         this.activeClass = 'prod-preview__thumb-img--current'
         this.previewWrapperOffsetWidth = this.previewWrapper.offsetWidth
@@ -275,7 +276,27 @@ class PreviewProduct {
         this.slidingSegment = 0
         this.translateXCurrent = 0
         this.direction = null
+
+        this.checkElementInView = new IntersectionObserver(this.callBackIntersectionObserver, {
+            threshold: 0.5
+        })
+
+        this.initialTime = 0
+        this.swipeSpeed = 500
+        this.clickTime = this.swipeSpeed
     }
+
+    callBackIntersectionObserver = (entries) => {
+        console.log(entries, this.clickTime, this.swipeSpeed);
+        entries.forEach((entry) => {
+            if (entry.isIntersecting && this.clickTime >= this.swipeSpeed) {
+                console.log('Kiem tra phan tu co vao khung nhin', entry);
+                this.currentIndex = Number(entry.target.getAttribute('tabIndex'));
+                console.log('Kiem tra index khi vao khung nhin', this.currentIndex);
+            }
+        });
+    }
+
     isTouchDevice = () => {
         try {
             //We try to create TouchEvent (it would fail for desktops and throw error)
@@ -304,6 +325,10 @@ class PreviewProduct {
     }
 
     handleEvent() {
+        this.listProduct.forEach((product, index) => {
+            this.checkElementInView.observe(product);
+        });
+
         this.listProductThumb.forEach((productThumb) => {
             productThumb.onclick = () => {
                 this.currentIndex = productThumb.getAttribute('tabIndex')
@@ -319,6 +344,7 @@ class PreviewProduct {
             this.initialX = this.mouseX;
             this.initialY = this.mouseY;
             this.translateXCurrent = this.getTranslateX()
+            this.initialTime = Date.now()
         });
 
         this.previewTouchArea.addEventListener(this.events[this.deviceType].move, (event) => {
@@ -353,16 +379,28 @@ class PreviewProduct {
 
     endSwipe = () => {
         this.isSwiped = false;
-        if (this.slidingSegment > this.previewWrapperOffsetWidth / 5) {
+        // if (this.slidingSegment > this.previewWrapperOffsetWidth / 5) {
+        //     if (this.direction === 'Left' && this.currentIndex < this.listProductThumb.length - 1) {
+        //         this.currentIndex++;
+        //     } else if (this.direction === 'Right' && this.currentIndex > 0) {
+        //         this.currentIndex--;
+        //     }
+        // }
+        this.clickTime = Date.now() - this.initialTime;
+        if (this.clickTime < this.swipeSpeed) {
+            console.log('click nhanh', this.clickTime);
             if (this.direction === 'Left' && this.currentIndex < this.listProductThumb.length - 1) {
                 this.currentIndex++;
             } else if (this.direction === 'Right' && this.currentIndex > 0) {
                 this.currentIndex--;
             }
+            console.log('Kiem tra index', this.currentIndex);
+
         }
         this.translatePreviewWrapper();
         this.activeThumb()
         this.direction = null;
+        this.clickTime = this.swipeSpeed
     };
 
     translatePreviewWrapper() {
@@ -381,6 +419,9 @@ class PreviewProduct {
     addIndex() {
         this.listProductThumb.forEach((productThumb, index) => {
             productThumb.setAttribute('tabIndex', index)
+        })
+        this.listProduct.forEach((product, index) => {
+            product.setAttribute('tabIndex', index)
         })
     }
 
@@ -405,3 +446,4 @@ window.addEventListener('DOMContentLoaded', () => {
     previewProduct.start()
 })
 
+IntersectionObserver

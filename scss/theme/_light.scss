@@ -14,6 +14,10 @@ html {
     --header-shadow-color: rgba(237, 237, 246, 0.2);
   }
 
+  //Header
+  --header-action-dropdown-bg: var(--secondary-color-background);
+  --header-action-dropdown-shadow: rgba(200, 200, 200, 0.4);
+
   //Dropdown
   --dropdown-bg-color: var(--secondary-color-background);
   --dropdown-shadow-color: rgba(200, 200, 200, 0.4);
