@@ -40,10 +40,12 @@
   &__wrapper {
     overflow: hidden;
     flex: 1;
+    scroll-behavior: smooth;
   }
 
   &__list {
     display: flex;
+    // overflow-x: hidden;
   }
 
   &__item {

@@ -95,4 +95,11 @@ html {
 
   // Text content
   --text-content-hr-bg: #ebebeb;
+
+  //Checkout Page
+  --checkout-breadcrumbs-bg: var(--secondary-color-background);
+  --checkout-cart-info-bg: var(--secondary-color-background);
+  --checkout-cart-info-shadow: rgba(237, 237, 246, 0.2);
+  --checkout-border-color: var(--secondary-color-secondary-3);
+  --checkout-gift-shadow: rgba(237, 237, 246, 0.2);
 }

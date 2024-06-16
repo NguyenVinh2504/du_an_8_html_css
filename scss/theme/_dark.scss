@@ -89,4 +89,11 @@ html.dark {
 
   // Text content
   --text-content-hr-bg: #3e4043;
+
+  //Checkout Page
+  --checkout-breadcrumbs-bg: var(--dark-1);
+  --checkout-cart-info-bg: var(--dark-1);
+  --checkout-cart-info-shadow: rgba(23, 28, 40, 0.2);
+  --checkout-border-color: var(--dark-2);
+  --checkout-gift-shadow: rgba(23, 28, 40, 0.2);
 }
