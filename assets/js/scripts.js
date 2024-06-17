@@ -258,9 +258,7 @@ class PreviewProduct {
         this.mouseY = 0;
         this.initialY = 0;
         this.isSwiped = false;
-        this.prevPageX = 0
-        this.prevScrollLeft = 0
-        this.positionDiff = 0
+        this.movementX = 0
         this.events = {
             mouse: {
                 down: "mousedown",
@@ -284,15 +282,18 @@ class PreviewProduct {
             threshold: 0.5
         })
 
-        this.initialTime = 0
-        this.swipeSpeed = 500
-        this.clickTime = this.swipeSpeed
+        this.prevSpeed = 0
+        this.speed = 0
+        this.acceleration = 0
+        this.currentMouseX = 0
+        this.prevMouseX = 0;
+        this.prevTime = 0
+        this.time = 0
     }
 
     callBackIntersectionObserver = (entries) => {
-        console.log(entries, this.clickTime, this.swipeSpeed);
         entries.forEach((entry) => {
-            if (entry.isIntersecting && this.clickTime >= this.swipeSpeed) {
+            if (entry.isIntersecting) {
                 console.log('Kiem tra phan tu co vao khung nhin', entry);
                 this.currentIndex = Number(entry.target.getAttribute('tabIndex'));
                 console.log('Kiem tra index khi vao khung nhin', this.currentIndex);
@@ -328,9 +329,9 @@ class PreviewProduct {
     }
 
     handleEvent() {
-        this.listProduct.forEach((product, index) => {
-            this.checkElementInView.observe(product);
-        });
+        // this.listProduct.forEach((product, index) => {
+        //     this.checkElementInView.observe(product);
+        // });
 
         this.listProductThumb.forEach((productThumb) => {
             productThumb.onclick = () => {
@@ -340,48 +341,45 @@ class PreviewProduct {
             }
         })
         window.addEventListener('resize', this.previewWrapperWith)
-        this.previewTouchArea.addEventListener(this.events[this.deviceType].down, (event) => {
-            // this.isSwiped = true;
-            // //Get X and Y Position
-            // this.getXY(event);
-            // this.initialX = this.mouseX;
-            // this.initialY = this.mouseY;
-            // // this.translateXCurrent = this.getTranslateX()
-            // this.translateXCurrent = this.previewWrapper.scrollLeft
-            // this.initialTime = Date.now()
-            this.startSwipe(event)
-        });
+        this.previewTouchArea.addEventListener(this.events[this.deviceType].down, this.startSwipe);
 
         this.previewTouchArea.addEventListener(this.events[this.deviceType].move, (event) => {
-            // if (!this.isTouchDevice()) {
-            //     event.preventDefault();
-            // }
+            if (!this.isTouchDevice()) {
+                event.preventDefault();
+            }
 
-            // if (this.isSwiped) {
-            //     console.log(event.movementX);
+            if (this.isSwiped) {
+                this.getXY(event);
+                this.time = new Date().getTime()
+                this.currentMouseX = (!this.isTouchDevice() ? event.pageX : event.touches[0].pageX) - this.rectLeft
+                if (this.prevMouseX && this.currentMouseX) {
+                    let timeInterval = (this.time - this.prevTime) / 1000
+                    this.movementX = Math.abs(this.currentMouseX - this.prevMouseX)
+                    this.speed = this.movementX / timeInterval
+                    this.acceleration = (this.speed - this.prevSpeed) / timeInterval
 
-            //     // this.movePreviewWrapper(this.getTranslateX() + event.movementX);
-            //     this.previewWrapper.scrollLeft -= event.movementX
-            //     this.getXY(event);
-            //     let diffX = this.mouseX - this.initialX;
-            //     let diffY = this.mouseY - this.initialY;
-            //     this.slidingSegment = Math.abs(Math.abs(diffX) / this.previewWrapper.offsetWidth) * this.previewWrapperOffsetWidth
-
-            //     if (Math.abs(diffY) > Math.abs(diffX)) {
-            //         let output = diffY > 0 ? "Down" : "Up";
-            //         // console.log(output);
-            //     } else {
-            //         this.direction = diffX > 0 ? "Right" : "Left";
-            //         // console.log(output);
-            //         const translateXTotal = this.translateXCurrent + (this.direction === "Right" ? this.slidingSegment : -this.slidingSegment);
-            //         if ((this.direction === 'Left' && this.currentIndex < this.listProductThumb.length - 1) ||
-            //             (this.direction === 'Right' && this.currentIndex > 0)) {
-            //             // this.movePreviewWrapper(translateXTotal);
-            //         }
-            //     }
-            // }
-
-            this.moveSwipe(event)
+                    // console.log('movementX', this.movementX);
+                    // console.log('Tốc độ vuốt được', this.speed, 'px/s');
+                    // console.log('Gia tốc', this.acceleration, 'px/s');
+                }
+                this.prevMouseX = this.currentMouseX
+                this.prevSpeed = this.speed
+                this.prevTime = this.time
+                let diffX = this.mouseX - this.initialX;
+                let diffY = this.mouseY - this.initialY;
+                this.slidingSegment = Math.abs(diffX)
+                if (Math.abs(diffY) > Math.abs(diffX)) {
+                    let output = diffY > 0 ? "Down" : "Up";
+                    // console.log(output);
+                } else {
+                    this.direction = diffX > 0 ? "Right" : "Left";
+                    const translateXTotal = this.translateXCurrent + (this.direction === "Right" ? this.slidingSegment : -this.slidingSegment);
+                    if ((this.direction === 'Left' && this.currentIndex < this.listProductThumb.length - 1) ||
+                        (this.direction === 'Right' && this.currentIndex > 0)) {
+                        this.movePreviewWrapper(translateXTotal);
+                    }
+                }
+            }
         });
 
         this.previewTouchArea.addEventListener(this.events[this.deviceType].up, this.endSwipe);
@@ -391,59 +389,28 @@ class PreviewProduct {
 
     startSwipe = (e) => {
         this.isSwiped = true;
-        this.prevPageX = e.pageX || e.touches[0].pageX
-        this.prevScrollLeft = this.previewTouchArea.scrollLeft
-    }
-    moveSwipe = (e) => {
-        if (!this.isSwiped) return
-        if (this.previewTouchArea === null) return
-        e.preventDefault();
-        this.previewTouchArea.style.scrollBehavior = 'auto'
-        this.positionDiff = (e.pageX || e.touches[0].pageX) - this.prevPageX
-        this.previewTouchArea.scrollLeft = this.prevScrollLeft - this.positionDiff
-    }
-
-    autoSwipe = () => {
-        if (this.previewTouchArea.scrollLeft == (this.previewTouchArea.scrollWidth - this.previewWrapperOffsetWidth)) return
-
-        this.positionDiff = Math.abs(this.positionDiff)
-        let previewWrapperOffsetWidth = this.previewWrapperOffsetWidth
-        let valDifference = previewWrapperOffsetWidth - this.positionDiff
-        console.log('this.previewTouchArea.scrollLeft', this.previewTouchArea.scrollLeft, "this.positionDiff", this.positionDiff);
-        if (this.previewTouchArea.scrollLeft > this.prevScrollLeft) {
-            this.previewTouchArea.scrollLeft = this.previewTouchArea.scrollLeft + (this.positionDiff > previewWrapperOffsetWidth / 3 ? valDifference : -this.positionDiff)
-            return
-        }
-        this.previewTouchArea.scrollLeft -= this.positionDiff > previewWrapperOffsetWidth / 3 ? valDifference : -this.positionDiff
+        this.getXY(e);
+        this.initialX = this.mouseX;
+        this.initialY = this.mouseY;
+        this.translateXCurrent = this.getTranslateX()
+        this.prevTime = new Date().getTime()
     }
 
     endSwipe = () => {
         this.isSwiped = false;
-        if (this.slidingSegment > this.previewWrapperOffsetWidth / 5) {
+        if (this.slidingSegment > this.previewWrapperOffsetWidth / 2 || this.speed >= 125) {
             if (this.direction === 'Left' && this.currentIndex < this.listProductThumb.length - 1) {
                 this.currentIndex++;
             } else if (this.direction === 'Right' && this.currentIndex > 0) {
                 this.currentIndex--;
             }
         }
-        // this.clickTime = Date.now() - this.initialTime;
-        // if (this.clickTime < this.swipeSpeed) {
-        //     console.log('click nhanh', this.clickTime);
-        //     if (this.direction === 'Left' && this.currentIndex < this.listProductThumb.length - 1) {
-        //         this.currentIndex++;
-        //     } else if (this.direction === 'Right' && this.currentIndex > 0) {
-        //         this.currentIndex--;
-        //     }
-        //     console.log('Kiem tra index', this.currentIndex);
-
-        // }
-        // this.translatePreviewWrapper();
+        // console.log('movementX', this.movementX);
+        // console.log('Tốc độ vuốt được', this.speed, 'px/s');
+        // console.log('Gia tốc', this.acceleration, 'px/s');
+        this.translatePreviewWrapper();
         this.activeThumb()
         this.direction = null;
-        this.clickTime = this.swipeSpeed
-        this.previewTouchArea.style.scrollBehavior = 'smooth'
-
-        this.autoSwipe()
     };
 
     translatePreviewWrapper() {
